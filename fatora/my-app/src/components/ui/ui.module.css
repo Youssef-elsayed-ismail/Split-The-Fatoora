@@ -1,0 +1,211 @@
+/* ---------- Button ---------- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  padding: 13px 22px;
+  font-size: 0.9375rem;
+  font-weight: 550;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition:
+    background-color 160ms var(--ease),
+    border-color 160ms var(--ease),
+    color 160ms var(--ease),
+    transform 160ms var(--ease);
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.985);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.primary {
+  background: var(--ink);
+  color: #fff;
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--ink-hover);
+}
+
+.secondary {
+  background: var(--surface);
+  border-color: var(--border-strong);
+  color: var(--text);
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--surface-sunken);
+  border-color: var(--text-subtle);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--text-muted);
+  padding: 10px 14px;
+}
+
+.ghost:hover:not(:disabled) {
+  background: rgb(16 16 20 / 4%);
+  color: var(--text);
+}
+
+.danger {
+  background: transparent;
+  color: var(--text-subtle);
+  padding: 8px 12px;
+  font-size: 0.8125rem;
+  border-radius: var(--radius-sm);
+}
+
+.danger:hover:not(:disabled) {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.block {
+  width: 100%;
+}
+
+/* ---------- Card ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-4);
+}
+
+@media (min-width: 480px) {
+  .card {
+    padding: var(--space-5);
+  }
+}
+
+.cardTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.cardTitle {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+/* ---------- Field ---------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 11px 13px;
+  /* 16px keeps iOS Safari from zooming on focus. */
+  font-size: 1rem;
+  transition:
+    border-color 160ms var(--ease),
+    box-shadow 160ms var(--ease);
+}
+
+.input:hover {
+  border-color: var(--text-subtle);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.input::placeholder {
+  color: var(--text-subtle);
+}
+
+.alignRight {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Number inputs read better without the spinners at this size. */
+.input[type='number']::-webkit-outer-spin-button,
+.input[type='number']::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.input[type='number'] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+/* ---------- Alert ---------- */
+.alert {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  border: 1px solid;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: 0.875rem;
+}
+
+.alertWarning {
+  background: var(--warning-soft);
+  border-color: var(--warning-border);
+  color: var(--warning-text);
+}
+
+.alertError {
+  background: var(--danger-soft);
+  border-color: #f0c8c2;
+  color: var(--danger);
+}
+
+.alertTitle {
+  font-weight: 600;
+}
+
+.alertList {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* ---------- EmptyState ---------- */
+.empty {
+  padding: var(--space-5) var(--space-4);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  background: var(--surface-sunken);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-md);
+}

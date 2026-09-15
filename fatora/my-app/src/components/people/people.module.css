@@ -1,0 +1,28 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  transition: background-color 160ms var(--ease);
+}
+
+.row:hover {
+  background: var(--surface-sunken);
+}
+
+.nameField {
+  flex: 1;
+  min-width: 0;
+}
+
+.count {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}

@@ -1,0 +1,105 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+}
+
+.name {
+  flex: 1;
+  min-width: 0;
+  font-weight: 550;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.amount {
+  font-size: 1.25rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.currency {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-subtle);
+  margin-left: 3px;
+}
+
+.breakdown {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-1) var(--space-4);
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  border-top: 1px solid var(--border);
+  background: var(--surface-sunken);
+}
+
+@media (min-width: 480px) {
+  .breakdown {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.line {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.lineLabel {
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+}
+
+.lineValue {
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Totals ---------- */
+.totals {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.totalRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+}
+
+.totalRow strong {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.grand {
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border);
+  font-size: 1rem;
+  color: var(--text);
+}

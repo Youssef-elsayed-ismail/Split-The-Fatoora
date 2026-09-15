@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Set-Location \"C:\\\\Users\\\\maria\\\\Documents\\\\PERSONAL\\\\fatora\\\\my-app\"; npx oxlint; Write-Output \"LINT_EXIT=$LASTEXITCODE\"; npx vite build; Write-Output \"BUILD_EXIT=$LASTEXITCODE\")",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\maria\\\\Documents\\\\PERSONAL\\\\fatora\\\\my-app\"; npx esbuild smoke.mts --bundle --platform=node --format=esm --outfile=smoke.bundle.mjs --log-level=warning; if \\($?\\) { node smoke.bundle.mjs }; Write-Output \"SMOKE_EXIT=$LASTEXITCODE\")",
+      "PowerShell(npm install *)",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\maria\\\\Documents\\\\PERSONAL\\\\fatora\\\\my-app\"; npx tsc -b --force --pretty false 2>&1 | Select-Object -First 30; Write-Output \"TSC=$LASTEXITCODE\")",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\maria\\\\Documents\\\\PERSONAL\\\\fatora\\\\my-app\"; node server/makeTestReceipt.mjs test-receipt.png; Write-Output \"GEN=$LASTEXITCODE\")",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\maria\\\\Documents\\\\PERSONAL\\\\fatora\\\\my-app\"; npx vite build --logLevel warn; Write-Output \"BUILD=$LASTEXITCODE\")",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\maria\\\\Documents\\\\PERSONAL\\\\fatora\\\\my-app\"; node server/smokeExtract.mjs; Write-Output \"SMOKE=$LASTEXITCODE\")",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\maria\\\\Documents\\\\PERSONAL\\\\fatora\\\\my-app\"; if \\(Test-Path .env\\) { \"`.env` EXISTS\"; \\(Get-Content .env | Measure-Object -Line\\).Lines; if \\(Select-String -Path .env -Pattern \"ANTHROPIC_API_KEY=sk-ant\" -Quiet\\) { \"  and already has a key\" } else { \"  but has no key line\" } } else { \"`.env` DOES NOT EXIST\" }; Write-Output \"--- git? ---\"; if \\(Test-Path ../.git\\) { \"git repo at parent\" } elseif \\(Test-Path .git\\) { \"git repo here\" } else { \"not a git repo yet\" })",
+      "Bash(node -e ' *)",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\maria\\\\Documents\\\\PERSONAL\\\\fatora\\\\my-app\"; npx tsc -b --force --pretty false 2>&1 | Select-Object -First 25; Write-Output \"TSC=$LASTEXITCODE\")",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\maria\\\\Documents\\\\PERSONAL\\\\fatora\\\\my-app\"; npx tsc -b --force --pretty false 2>&1 | Select-Object -First 25; Write-Output \"TSC=$LASTEXITCODE\"; npx oxlint 2>&1 | Select-Object -Last 12; Write-Output \"LINT=$LASTEXITCODE\")",
+      "PowerShell(npm run *)",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\maria\\\\Documents\\\\PERSONAL\\\\fatora\\\\my-app\"; npx vite build --logLevel warn; Write-Output \"BUILD=$LASTEXITCODE\"; $env:PORT=\"5211\"; Start-Process -FilePath \"node\" -ArgumentList \"--env-file-if-exists=.env\",\"server/index.ts\" -PassThru -WindowStyle Hidden | Select-Object -ExpandProperty Id)",
+      "PowerShell(Set-Location \"C:\\\\Users\\\\maria\\\\Documents\\\\PERSONAL\\\\fatora\\\\my-app\"; $env:BASE=\"http://localhost:5211\"; node server/smokeExtract.mjs; Write-Output \"SMOKE=$LASTEXITCODE\")",
+      "PowerShell(Stop-Process *)",
+      "PowerShell($ports = 5199,5210,5211,5212,5173; foreach \\($p in $ports\\) { $c = Get-NetTCPConnection -LocalPort $p -State Listen -ErrorAction SilentlyContinue; if \\($c\\) { \"port $p STILL LISTENING \\(pid $\\($c.OwningProcess\\)\\)\" } else { \"port $p free\" } })"
+    ]
+  }
+}

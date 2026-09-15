@@ -1,0 +1,1 @@
+{"root":["./vite.config.ts","./server/api.ts","./server/devapiplugin.ts","./server/extract.ts","./server/index.ts","./server/receiptschema.ts","./server/ocr/claude.ts","./server/ocr/gemini.ts","./server/ocr/index.ts","./server/ocr/provider.ts","./server/ocr/validate.test.ts","./server/ocr/validate.ts"],"version":"5.9.2"}

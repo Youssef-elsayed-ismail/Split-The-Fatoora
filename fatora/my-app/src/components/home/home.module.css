@@ -1,0 +1,198 @@
+/* Centred, single-column composition. Everything is sized off the mobile view first. */
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-3);
+  padding: var(--space-5) 0 var(--space-4);
+}
+
+/* ---------- Receipt / camera visual ---------- */
+.visual {
+  width: 132px;
+  height: auto;
+  margin-bottom: var(--space-2);
+  animation: settle 480ms var(--ease) both;
+}
+
+.viewfinder {
+  fill: none;
+  stroke: var(--border-strong);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.paper {
+  fill: var(--surface);
+  stroke: var(--border-strong);
+  stroke-width: 1.5;
+}
+
+.headline {
+  fill: var(--border-strong);
+}
+
+.line {
+  fill: var(--border);
+}
+
+.rule {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 1.5;
+  stroke-dasharray: 2 3;
+  stroke-linecap: round;
+}
+
+.total {
+  fill: var(--accent);
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------- Title ---------- */
+.title {
+  font-size: 2.5rem;
+  letter-spacing: -0.03em;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.0625rem;
+  max-width: 24ch;
+  text-wrap: balance;
+}
+
+@media (min-width: 640px) {
+  .home {
+    padding: var(--space-7) 0 var(--space-5);
+    gap: var(--space-4);
+  }
+
+  .visual {
+    width: 152px;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+}
+
+/* ---------- Actions ---------- */
+.actions {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+/* Nested so these win over the shared .button padding without editing it. */
+.actions .scan {
+  padding: 18px 26px;
+  font-size: 1.0625rem;
+  box-shadow: var(--shadow-lift);
+}
+
+.actions .upload {
+  padding: 15px 24px;
+  font-size: 0.9375rem;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgb(255 255 255 / 35%);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 700ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- Receipt in progress ---------- */
+.resume {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+  color: var(--text);
+  text-align: left;
+  text-decoration: none;
+  transition:
+    border-color 160ms var(--ease),
+    background-color 160ms var(--ease),
+    transform 160ms var(--ease);
+}
+
+.resume:hover {
+  border-color: var(--accent-border);
+  background: var(--accent-soft);
+}
+
+.resume:active {
+  transform: scale(0.99);
+}
+
+.resumeLabel {
+  font-size: 0.9375rem;
+  font-weight: 550;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.resumeMeta {
+  flex: none;
+  font-size: 0.8125rem;
+  color: var(--text-subtle);
+}
+
+/* ---------- Tertiary ---------- */
+.manual {
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  background: none;
+  border: 0;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  transition:
+    color 160ms var(--ease),
+    background-color 160ms var(--ease);
+}
+
+.manual:hover {
+  background: rgb(16 16 20 / 4%);
+  color: var(--text);
+}
+
+.note {
+  font-size: 0.8125rem;
+  color: var(--text-subtle);
+  max-width: 38ch;
+  text-wrap: pretty;
+}
