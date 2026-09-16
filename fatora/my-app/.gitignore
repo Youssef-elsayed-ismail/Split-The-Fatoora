@@ -16,6 +16,7 @@ dist-ssr
 .env
 .env.*
 !.env.example
+api.env
 
 # Generated extraction test fixture
 test-receipt.png

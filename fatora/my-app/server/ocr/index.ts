@@ -11,7 +11,7 @@ const PROVIDERS: Record<string, OcrProvider> = {
   gemini: geminiOcrProvider,
 }
 
-const DEFAULT_PROVIDER = 'claude'
+const DEFAULT_PROVIDER = 'gemini'
 
 export function getOcrProvider(): OcrProvider {
   const requested = process.env.OCR_PROVIDER?.trim() || DEFAULT_PROVIDER
